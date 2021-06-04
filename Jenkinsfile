@@ -41,7 +41,7 @@ pipeline {
                 checkout([
                     $class: 'GitSCM', 
                     branches: [[name: '*/master']], 
-                    userRemoteConfigs: [[url: 'https://github.com/prspal/AutoTest.git']]
+                    userRemoteConfigs: [[url: 'https://github.com/nunit/nunit-csharp-samples.git']]
                 ])            }
         }
         stage('Build code') { 
