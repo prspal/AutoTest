@@ -51,7 +51,7 @@ pipeline {
 //                 }
 //             }
             steps {
-                bat "Restore Nuget Packages"
+                bat "echo Restore Nuget Packages"
                 bat '"C:\\opt\\bin\\nuget.exe" restore samples.sln'
                 echo "Build the package"
                 bat '"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\MSBuild\\Current\\Bin\\msbuild.exe" /t:build samples.sln'
