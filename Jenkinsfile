@@ -1,83 +1,45 @@
-agentName = "linux"
+agentName = "Windows"
 agentLabel = "${println 'Right Now the Agent Name is ' + agentName; return agentName}"
 
 pipeline {
-    agent none 
+    agent none
+
     stages {
-        stage('One_0'){
-           agent { label agentLabel }
-           steps {
-               script {
-                    println agentLabel
-                    println agentName
-                    sh 'hostname'
+        stage('Prep') {
+            steps {
+                script {
+                    agentName = "linux"
                 }
             }
-
-        }      
-        stage('One_1') { 
+        }
+        stage('Checking') {
+            steps {
+                script {
+                    println agentLabel
+                    println agentName
+                }
+            }
+        }
+        stage('Final1') {
             agent { label agentLabel }
-           steps { 
-               echo "Switch Agents"
-               script{
-                   if(isUnix()){
-                       echo "Linux -> Windows"
-                       agentName = "windows"
-                   }
-                   else{
-                       echo "Windows-> Linux"
-                       agentName = "linux"
-    //                 sh "echo https://s3.amazonaws.com/lambda-tunnel/LT_Linux.zip"
-                   }
-               }               
 
-               
-           }
-        }
-        stage('One_2'){
-           agent { label agentLabel }
-           steps {
-               script {
-                    println agentLabel
-                    println agentName
+            steps {
+                script {
                     sh 'hostname'
+                    agentName = "linux"
                 }
             }
-
-       }       
-       stage('Git Code') { 
-           agent { label agentLabel }
+    }
+      stage('Final2') {
+            agent { label agentLabel }
 
             steps {
-//                 input "Continue"
-                   echo "Get git code"
-//                   git 'https://github.com/prspal/AutoTest.git'
+                script {
+                    println agentLabel
+                    println agentName
+                }
             }
-        }
-        stage('Build code') { 
-//             when {
-//                 not {
-//                     branch "master"
-//                 }
-//             }
-            steps {
-                echo "Three"
-            }
-        }
-        
-        stage('Automation') {
-             parallel { 
-                       stage('BVT Test') {
-                       steps {
-                            echo "Running the unit test..."
-                            }
-                       }
-                        stage('WebUI test') {
-                          steps {
-                                echo "Running the integration test..."
-                                 }
-                            }
-                       }
-          }
+    }
+
     }
 }
