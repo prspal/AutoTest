@@ -19,7 +19,7 @@ pipeline {
             }
         }
       stage('Final2') {
-            agent agentName
+            agent { label agentName }
  
             steps {
                 echo "The Node Name is: ${node_name}"
