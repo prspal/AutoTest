@@ -4,7 +4,7 @@ node {
            print 'Hello, world !'
            if (i==0)
            {
-               git "<a href="https://github.com/prspal/AutoTest.git">https://github.com/prspal/AutoTest.git</a>"
+               git "<a href='https://github.com/prspal/AutoTest.git'>https://github.com/prspal/AutoTest.git</a>"
                echo 'Running on Stage #0'
            }
            else {
