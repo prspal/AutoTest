@@ -4,7 +4,12 @@ pipeline {
         stage('One') { 
            steps {
                 echo "Test SH cmd on windows"
-                sh "echo https://s3.amazonaws.com/lambda-tunnel/LT_Linux.zip"
+               if(isUnix()){
+                   echo "Linux"
+               }
+               else{
+                   echo "windows"
+//                 sh "echo https://s3.amazonaws.com/lambda-tunnel/LT_Linux.zip"
 
             }
         }
