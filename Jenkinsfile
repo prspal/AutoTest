@@ -30,9 +30,7 @@ pipeline {
         stage('Cleanup Workspace') {
             steps {
                 cleanWs()
-                sh """
-                echo "Cleaned Up Workspace ${env.JOB_NAME} "
-                """
+                 echo "Cleaned Up Workspace ${env.JOB_NAME} "
             }
         }
        stage('Git Code') { 
