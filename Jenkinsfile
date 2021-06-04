@@ -1,41 +1,15 @@
-pipeline {
-    agent any 
-    stages {
-        stage('One') { 
-           steps {
-                echo "Put something here"
-            }
-        }
-        stage('Git Code') { 
-            steps {
-//                 input "Continue"
-                   echo "Get git code"
-            }
-        }
-        stage('Build code') { 
-//             when {
-//                 not {
-//                     branch "master"
-//                 }
-//             }
-            steps {
-                echo "Three"
-            }
-        }
-        
-        stage('Automation') {
-             parallel { 
-                       stage('BVT Test') {
-                       steps {
-                            echo "Running the unit test..."
-                            }
-                       }
-                        stage('WebUI test') {
-                          steps {
-                                echo "Running the integration test..."
-                                 }
-                            }
-                       }
-          }
-    }
+node {
+      for (i=0; i<2; i++) { 
+           stage "Stage #"+i
+           print 'Hello, world !'
+           if (i==0)
+           {
+               git "<a href="https://github.com/prspal/AutoTest.git">https://github.com/prspal/AutoTest.git</a>"
+               echo 'Running on Stage #0'
+           }
+           else {
+               build 'Declarative pipeline'
+               echo 'Running on Stage #1'
+           }
+      }
 }
