@@ -51,8 +51,8 @@ pipeline {
 //                 }
 //             }
             steps {
-                echo "Building test"
-                bat 'msbuild'
+                echo "Restore Nuget Packages"
+                bat '"C:\opt\bin\nuget.exe" restore samples.sln'
             }
         }
         
