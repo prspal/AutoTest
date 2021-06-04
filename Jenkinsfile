@@ -52,7 +52,7 @@ pipeline {
 //             }
             steps {
                 echo "Building test"
-                bat msbuild
+                bat 'msbuild'
             }
         }
         
