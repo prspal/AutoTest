@@ -21,7 +21,7 @@ pipeline {
                echo "Switch Agents"
                script{
                    if(isUnix()){
-                       echo "Linux ->"
+                       echo "Linux -> Windows"
                        agentName = "windows"
                    }
                    else{
