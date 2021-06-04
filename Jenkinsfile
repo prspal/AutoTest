@@ -35,6 +35,8 @@ pipeline {
 
        }       
        stage('Git Code') { 
+           agent { label agentLabel }
+
             steps {
 //                 input "Continue"
                    echo "Get git code"
