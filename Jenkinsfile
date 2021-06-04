@@ -1,9 +1,10 @@
-agentName = "linux"
+agentName = "master"
 agentLabel = "${println 'Right Now the Agent Name is ' + agentName; return agentName}"
 cmd = ""
 pipeline {
-    agent none 
+    agent {label agentName} 
     stages { 
+        /*
         stage('One_1') { 
             agent { label agentLabel }
             steps { 
@@ -41,14 +42,26 @@ pipeline {
            }
 
        }       
-       stage('Git Code') { 
-           agent { label agentName }
+       */
 
+        stage('Cleanup Workspace') {
             steps {
-//                 input "Continue"
-                   echo "Get git code"
-//                   git 'https://github.com/prspal/AutoTest.git'
+                cleanWs()
+                sh """
+                echo "Cleaned Up Workspace for ${APP_NAME}"
+                """
             }
+        }
+       stage('Git Code') { 
+//            agent { label agentName }
+
+            steps { 
+                echo "Get git code"
+                checkout([
+                    $class: 'GitSCM', 
+                    branches: [[name: '*/master']], 
+                    userRemoteConfigs: [[url: 'https://github.com/prspal/AutoTest.git']]
+                ])            }
         }
         stage('Build code') { 
 //             when {
