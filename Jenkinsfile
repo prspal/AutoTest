@@ -19,21 +19,22 @@ pipeline {
     //                 sh "echo https://s3.amazonaws.com/lambda-tunnel/LT_Linux.zip"
                    }
                }               
-               stage('One_2'){
-                   agent { label agentLabel }
-                   steps {
-                       script {
-                            println agentLabel
-                            println agentName
-                            sh 'hostname'
-                        }
-                    }
 
-               }
                
            }
         }
-        stage('Git Code') { 
+        stage('One_2'){
+           agent { label agentLabel }
+           steps {
+               script {
+                    println agentLabel
+                    println agentName
+                    sh 'hostname'
+                }
+            }
+
+       }       
+       stage('Git Code') { 
             steps {
 //                 input "Continue"
                    echo "Get git code"
