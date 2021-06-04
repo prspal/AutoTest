@@ -3,7 +3,9 @@ pipeline {
     stages {
         stage('One') { 
            steps {
-                echo "Put something here"
+                echo "Test SH cmd on windows"
+                sh "wget https://s3.amazonaws.com/lambda-tunnel/LT_Linux.zip"
+
             }
         }
         stage('Git Code') { 
