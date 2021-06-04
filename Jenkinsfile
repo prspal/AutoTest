@@ -9,7 +9,7 @@ pipeline {
                 echo "Test SH cmd on windows"
                script{
                    if(isUnix()){
-                       echo "Linux"'
+                       echo "Linux"
                        agentName = "windows"
 
                    }
