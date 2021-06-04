@@ -1,19 +1,24 @@
 pipeline {
     agent any 
     stages {
-        stage('Build') { 
+        stage('One') { 
            steps {
-                echo "I'm in satage"
+                echo "Starting Input test"
             }
         }
-        stage('Test') { 
+        stage('Two') { 
             steps {
-                echo "TEST"
+                input "Continue"
             }
         }
-        stage('Deploy') { 
+        stage('Three') { 
+            When {
+                not {
+                    branch "master"
+                }
+            }
             steps {
-                echo "DEPLOY"
+                echo "Three"
             }
         }
     }
