@@ -12,7 +12,7 @@ pipeline {
 
             steps {
                 script {
-                    println env.HOSTNAME
+                    println "\n\n-- Running on machine: " + "hostname".execute().text
                     agentName = "windows"
                 }
             }
@@ -24,7 +24,7 @@ pipeline {
                 script {
                     println agentLabel
                     println agentName
-                    println env.HOSTNAME
+                    println "\n\n-- Running on machine: " + "hostname".execute().text
                 }
             }
         }
