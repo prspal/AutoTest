@@ -1,4 +1,4 @@
-agentName = "Windows"
+agentName = "windows"
 agentLabel = "${println 'Right Now the Agent Name is ' + agentName; return agentName}"
 
 pipeline {
