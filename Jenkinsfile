@@ -22,6 +22,7 @@ pipeline {
     environment {
         APP_NAME = "AutoTest" 
         APP_ENV  = "Demo"
+        WEBUI_TESTS = "DataDrivenTests.DataDrivenTestFixture"
     }
 
     
@@ -60,9 +61,10 @@ pipeline {
         
         stage('Automation') {
              parallel { 
-                       stage('BVT Test') {
+                       stage('NUnit Test') {
                        steps {
                             echo "Running the unit test..."
+                            bat  'C:\opt\nunit3\nunit-console\nunit3-console.exe DataDrivenTests/bin/Debug/DataDriven.Tests.dll  ExpectedExceptionExample/bin/Debug/ExpectedExceptionExample.Tests.dll   --result=%WORKSPACE%\TestResult.xml --where "class =~ /%RUN_WEBUI_TEST%/"'
                             }
                        }
                         stage('WebUI test') {
