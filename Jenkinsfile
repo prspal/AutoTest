@@ -64,7 +64,7 @@ pipeline {
                        stage('NUnit Test') {
                        steps {
                             echo "Running the unit test..."
-                            bat  'C:\opt\nunit3\nunit-console\nunit3-console.exe DataDrivenTests/bin/Debug/DataDriven.Tests.dll  ExpectedExceptionExample/bin/Debug/ExpectedExceptionExample.Tests.dll   --result=%WORKSPACE%\TestResult.xml --where "class =~ /%RUN_WEBUI_TEST%/"'
+                            bat  'C:\\opt\\nunit3\\nunit-console\\nunit3-console.exe DataDrivenTests/bin/Debug/DataDriven.Tests.dll  ExpectedExceptionExample/bin/Debug/ExpectedExceptionExample.Tests.dll   --result=%WORKSPACE%\\TestResult.xml --where "class =~ /%RUN_WEBUI_TEST%/"'
                             }
                        }
                         stage('WebUI test') {
