@@ -6,30 +6,30 @@ pipeline {
                 echo "Starting Input test"
             }
         }
-        stage('Two') { 
-            steps {
-                input "Continue"
-            }
+        stage('Git Code') { 
+//             steps {
+//                 input "Continue"
+//             }
         }
-        stage('Three') { 
-            when {
-                not {
-                    branch "master"
-                }
-            }
+        stage('Build code') { 
+//             when {
+//                 not {
+//                     branch "master"
+//                 }
+//             }
             steps {
                 echo "Three"
             }
         }
         
-        stage('Four') {
+        stage('Automation') {
              parallel { 
-                       stage('Unit Test') {
+                       stage('BVT Test') {
                        steps {
                             echo "Running the unit test..."
                             }
                        }
-                        stage('Integration test') {
+                        stage('WebUI test') {
 //                           agent {
 //                                 docker {
 //                                         reuseNode true
