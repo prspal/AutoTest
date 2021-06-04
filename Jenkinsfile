@@ -10,7 +10,7 @@ pipeline {
             steps {
 //                 input "Continue"
                    echo "Get git code"
-                  git https://github.com/prspal/AutoTest.git
+                  git 'https://github.com/prspal/AutoTest.git'
             }
         }
         stage('Build code') { 
