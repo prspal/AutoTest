@@ -12,14 +12,7 @@ pipeline {
                 }
             }
         }
-        stage('Checking') {
-            steps {
-                script {
-                    println agentLabel
-                    println agentName
-                }
-            }
-        }
+  
         stage('Final1') {
             agent { label agentLabel }
 
@@ -37,6 +30,7 @@ pipeline {
                 script {
                     println agentLabel
                     println agentName
+                    sh 'hostname'
                 }
             }
     }
