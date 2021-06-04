@@ -31,12 +31,6 @@ pipeline {
                             }
                        }
                         stage('WebUI test') {
-//                           agent {
-//                                 docker {
-//                                         reuseNode true
-//                                         image 'ubuntu'
-//                                        }
-//                                 }
                           steps {
                                 echo "Running the integration test..."
                                  }
