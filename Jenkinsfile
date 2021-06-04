@@ -8,9 +8,9 @@ pipeline {
         }
     }
 
-    tools { 
+//     tools { 
 //         maven 'maven3' 
-    }
+//     }
 
     options {
         buildDiscarder logRotator( 
