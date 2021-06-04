@@ -40,7 +40,7 @@ pipeline {
                script {
                     println agentLabel
                     println agentName
-                    sh 'hostname'
+                   print ${env.HOSTNAME}
                 }
             }
 
