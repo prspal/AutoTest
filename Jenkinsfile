@@ -18,6 +18,7 @@ pipeline {
         stage('One_1') { 
             agent { label agentLabel }
            steps { 
+               echo "Hostname: ${env.HOSTNAME}"
                echo "Switch Agents"
                script{
                    if(isUnix()){
@@ -40,9 +41,9 @@ pipeline {
                script {
                     println agentLabel
                     println agentName
-                   print ${env.HOSTNAME}
                 }
-            }
+               echo "Hostname: ${env.HOSTNAME}"
+           }
 
        }       
        stage('Git Code') { 
