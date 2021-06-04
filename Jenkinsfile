@@ -5,13 +5,7 @@ pipeline {
     agent none
 
     stages {
-        stage('Prep') {
-            steps {
-                script {
-                    agentName = "linux"
-                }
-            }
-        }
+ 
   
         stage('Final1') {
             agent { label agentLabel }
@@ -22,7 +16,7 @@ pipeline {
                     agentName = "windows"
                 }
             }
-    }
+        }
       stage('Final2') {
             agent { label agentLabel }
 
@@ -33,7 +27,7 @@ pipeline {
                     sh 'hostname'
                 }
             }
-    }
+        }
 
     }
 }
