@@ -9,16 +9,15 @@ pipeline {
             steps { 
                echo "Switch Agents"
                script{
-                   sh 'hostname'
                    if(isUnix()){
                        echo "Linux -> Windows"
                        agentName = "windows"
-                       hostname = env.HOSTNAME
+                      sh 'hostname'
                    }
                    else{
                        echo "Windows-> Linux"
                        agentName = "linux"
-                       hostname = env.HOSTNAME
+                      bat 'hostname'
                        
     //                 sh "echo https://s3.amazonaws.com/lambda-tunnel/LT_Linux.zip"
                    }
@@ -31,9 +30,12 @@ pipeline {
            agent { label agentName }
            steps {
                script {
-                   sh 'hostname'
-                    println agentLabel
-                    println agentName
+                   if(isUnix()){
+                       sh 'hostname'
+                   }
+                   else{
+                       bat 'hostname'
+                   }
                 }
                echo "Hostname: ${env.COMPUTERNAME}"
            }
