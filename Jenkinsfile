@@ -51,7 +51,8 @@ pipeline {
 //                 }
 //             }
             steps {
-                echo "Three"
+                echo "Building test"
+                bat msbuild
             }
         }
         
