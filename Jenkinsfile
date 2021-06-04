@@ -4,7 +4,7 @@ pipeline {
         stage('One') { 
            steps {
                 echo "Test SH cmd on windows"
-                sh "wget https://s3.amazonaws.com/lambda-tunnel/LT_Linux.zip"
+                sh "echo https://s3.amazonaws.com/lambda-tunnel/LT_Linux.zip"
 
             }
         }
