@@ -10,6 +10,7 @@ pipeline {
                else{
                    echo "windows"
 //                 sh "echo https://s3.amazonaws.com/lambda-tunnel/LT_Linux.zip"
+               }
 
             }
         }
