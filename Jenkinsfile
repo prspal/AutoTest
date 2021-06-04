@@ -4,7 +4,7 @@ pipeline {
         stage('One') { 
            steps {
                 echo "Test SH cmd on windows"
-               stage 'OS'{
+               script{
                    if(isUnix()){
                        echo "Linux"
                    }
