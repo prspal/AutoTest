@@ -1,19 +1,37 @@
+agentName = "linux"
+agentLabel = "${println 'Right Now the Agent Name is ' + agentName; return agentName}"
+
 pipeline {
-    agent any 
+    agent none 
     stages {
-        stage('One') { 
+         stage('One_1') { 
            steps {
                 echo "Test SH cmd on windows"
                script{
                    if(isUnix()){
-                       echo "Linux"
+                       echo "Linux"'
+                       agentName = "windows"
+
                    }
                    else{
                        echo "windows"
+                       agentName = "linux"
     //                 sh "echo https://s3.amazonaws.com/lambda-tunnel/LT_Linux.zip"
                    }
+               }               
+               stage('One_2'){
+                   agent { label agentLabel }
+                   steps {
+                       script {
+                            println agentLabel
+                            println agentName
+                            sh 'hostname'
+                        }
+                    }
+
                }
-            }
+               
+           }
         }
         stage('Git Code') { 
             steps {
