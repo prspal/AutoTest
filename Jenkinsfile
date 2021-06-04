@@ -1,4 +1,4 @@
-agentName = "linux"
+agentName = "windows"
 agentLabel = "${println 'Right Now the Agent Name is ' + agentName; return agentName}"
 
 pipeline {
@@ -14,7 +14,7 @@ pipeline {
                 echo "The Node Name is: ${node_name}"
 
                 script {
-                     agentName = "windows"
+                     agentName = "linux"
                 }
             }
         }
