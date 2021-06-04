@@ -52,7 +52,7 @@ pipeline {
 //             }
             steps {
                 echo "Restore Nuget Packages"
-                bat '"C:\opt\bin\nuget.exe" restore samples.sln'
+                bat '"C:\\opt\\bin\\nuget.exe" restore samples.sln'
             }
         }
         
