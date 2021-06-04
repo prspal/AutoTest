@@ -42,7 +42,7 @@ pipeline {
                     println agentLabel
                     println agentName
                 }
-               echo "Hostname: ${env.HOSTNAME}"
+               echo "Hostname: ${env.COMPUTERNAME}"
            }
 
        }       
