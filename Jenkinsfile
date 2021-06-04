@@ -9,6 +9,7 @@ pipeline {
   
         stage('Final1') {
             agent { label agentLabel }
+            echo "The Node Name is: ${node_name}"
 
             steps {
                 script {
@@ -19,6 +20,7 @@ pipeline {
         }
       stage('Final2') {
             agent { label agentLabel }
+            echo "The Node Name is: ${node_name}"
 
             steps {
                 script {
