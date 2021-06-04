@@ -21,11 +21,11 @@ pipeline {
                echo "Switch Agents"
                script{
                    if(isUnix()){
-                       echo "Linux"
+                       echo "Linux ->"
                        agentName = "windows"
                    }
                    else{
-                       echo "windows"
+                       echo "Windows-> Linux"
                        agentName = "linux"
     //                 sh "echo https://s3.amazonaws.com/lambda-tunnel/LT_Linux.zip"
                    }
@@ -51,7 +51,7 @@ pipeline {
             steps {
 //                 input "Continue"
                    echo "Get git code"
-                  git 'https://github.com/prspal/AutoTest.git'
+//                   git 'https://github.com/prspal/AutoTest.git'
             }
         }
         stage('Build code') { 
