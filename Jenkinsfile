@@ -1,4 +1,4 @@
-agentName = "windows"
+agentName = "linux"
 agentLabel = "${println 'Right Now the Agent Name is ' + agentName; return agentName}"
 
 pipeline {
@@ -12,7 +12,7 @@ pipeline {
 
             steps {
                 script {
-                    sh 'hostname'
+                    println env.HOSTNAME
                     agentName = "windows"
                 }
             }
@@ -24,7 +24,7 @@ pipeline {
                 script {
                     println agentLabel
                     println agentName
-                    sh 'hostname'
+                    println env.HOSTNAME
                 }
             }
         }
