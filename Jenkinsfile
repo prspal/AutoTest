@@ -26,7 +26,7 @@ pipeline {
             steps {
                 script {
                     sh 'hostname'
-                    agentName = "linux"
+                    agentName = "windows"
                 }
             }
     }
