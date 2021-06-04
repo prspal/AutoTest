@@ -16,6 +16,7 @@ pipeline {
 
         }      
         stage('One_1') { 
+            agent { label agentLabel }
            steps { 
                echo "Switch Agents"
                script{
