@@ -4,7 +4,7 @@ node {
            print 'Hello, world !'
            if (i==0)
            {
-               git "<a href="https://github.com/Zulaikha12/gitnew.git">https://github.com/Zulaikha12/gitnew.git</a>"
+//                git "<a href="https://github.com/Zulaikha12/gitnew.git">https://github.com/Zulaikha12/gitnew.git</a>"
                echo 'Running on Stage #0'
            }
            else {
