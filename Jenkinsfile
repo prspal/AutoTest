@@ -2,53 +2,36 @@ agentName = "master"
 agentLabel = "${println 'Right Now the Agent Name is ' + agentName; return agentName}"
 cmd = ""
 pipeline {
-    agent {label agentName} 
-    stages { 
-        /*
-        stage('One_1') { 
-            agent { label agentLabel }
-            steps { 
-               echo "Switch Agents"
-               script{
-                   if(isUnix()){
-                       echo "Linux -> Windows"
-                       agentName = "windows"
-                      sh 'hostname'
-                   }
-                   else{
-                       echo "Windows-> Linux"
-                       agentName = "linux"
-                      bat 'hostname'
-                       
-    //                 sh "echo https://s3.amazonaws.com/lambda-tunnel/LT_Linux.zip"
-                   }
-               }               
-
-               
-           }
+    agent {
+        node {
+            label agentName
         }
-        stage('One_2'){
-           agent { label agentName }
-           steps {
-               script {
-                   if(isUnix()){
-                       sh 'hostname'
-                   }
-                   else{
-                       bat 'hostname'
-                   }
-                }
-               echo "Hostname: ${env.COMPUTERNAME}"
-           }
+    }
 
-       }       
-       */
+    tools { 
+        maven 'maven3' 
+    }
 
+    options {
+        buildDiscarder logRotator( 
+                    daysToKeepStr: '15', 
+                    numToKeepStr: '10'
+            )
+    }
+
+    environment {
+        APP_NAME = "AutoTest",
+        APP_ENV  = "Demo"
+    }
+
+    
+    
+    stages { 
         stage('Cleanup Workspace') {
             steps {
                 cleanWs()
                 sh """
-                echo "Cleaned Up Workspace for ${APP_NAME}"
+                echo "Cleaned Up Workspace ${env.JOB_NAME} "
                 """
             }
         }
