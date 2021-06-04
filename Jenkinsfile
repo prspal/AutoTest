@@ -1,33 +1,25 @@
 agentName = "linux"
 agentLabel = "${println 'Right Now the Agent Name is ' + agentName; return agentName}"
-
+cmd = ""
 pipeline {
     agent none 
-    stages {
-        stage('One_0'){
-           agent { label agentLabel }
-           steps {
-               script {
-                    println agentLabel
-                    println agentName
-                    sh 'hostname'
-                }
-            }
-
-        }      
+    stages { 
         stage('One_1') { 
             agent { label agentLabel }
-           steps { 
-               echo "Hostname: ${env.HOSTNAME}"
+            steps { 
                echo "Switch Agents"
                script{
+                   sh 'hostname'
                    if(isUnix()){
                        echo "Linux -> Windows"
                        agentName = "windows"
+                       hostname = env.HOSTNAME
                    }
                    else{
                        echo "Windows-> Linux"
                        agentName = "linux"
+                       hostname = env.HOSTNAME
+                       
     //                 sh "echo https://s3.amazonaws.com/lambda-tunnel/LT_Linux.zip"
                    }
                }               
@@ -39,6 +31,7 @@ pipeline {
            agent { label agentName }
            steps {
                script {
+                   sh 'hostname'
                     println agentLabel
                     println agentName
                 }
