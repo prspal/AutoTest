@@ -13,8 +13,6 @@ pipeline {
     //                 sh "echo https://s3.amazonaws.com/lambda-tunnel/LT_Linux.zip"
                    }
                }
-           }
-
             }
         }
         stage('Git Code') { 
