@@ -20,7 +20,7 @@ pipeline {
     }
 
     environment {
-        APP_NAME = "AutoTest",
+        APP_NAME = "AutoTest" 
         APP_ENV  = "Demo"
     }
 
