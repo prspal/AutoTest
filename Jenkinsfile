@@ -2,10 +2,9 @@ pipeline {
     agent any 
     stages {
         stage('Build') { 
-                   steps {
-
-            echo "I'm in satage: $current_stage"
-                   }
+           steps {
+                echo "I'm in satage"
+            }
         }
         stage('Test') { 
             steps {
