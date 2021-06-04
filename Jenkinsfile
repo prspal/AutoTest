@@ -7,10 +7,10 @@ pipeline {
             }
         }
         stage('Git Code') { 
-//             steps {
+            steps {
 //                 input "Continue"
-//             }
-            echo "Get git code"
+                   echo "Get git code"
+            }
         }
         stage('Build code') { 
 //             when {
