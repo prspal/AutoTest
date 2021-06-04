@@ -3,13 +3,14 @@ pipeline {
     stages {
         stage('One') { 
            steps {
-                echo "Starting Input test"
+                echo "Put something here"
             }
         }
         stage('Git Code') { 
 //             steps {
 //                 input "Continue"
 //             }
+            echo "Get git code"
         }
         stage('Build code') { 
 //             when {
